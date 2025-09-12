@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+# dnf5 install -y tmux 
 
 # Use a COPR Example:
 #
@@ -21,4 +21,13 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
+
+
+# https://github.com/aclap-dev/vdhcoapp/releases
+curl -LO https://github.com/aclap-dev/vdhcoapp/releases/download/v2.0.19/vdhcoapp-noffmpeg-linux-x86_64.tar.bz2
+rm -rf /opt/vdhcoapp
+mkdir /opt/vdhcoapp
+tar xf vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 -C /opt/vdhcoapp --strip-components=1
+rm vdhcoapp-noffmpeg-linux-x86_64.tar.bz2
+/opt/vdhcoapp/vdhcoapp install
