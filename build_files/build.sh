@@ -26,8 +26,18 @@ set -ouex pipefail
 
 # https://github.com/aclap-dev/vdhcoapp/releases
 VDHCOAPP_VERSION=2.0.19
+# VDHCOAPP_DIR=$PWD
 curl -LO https://github.com/aclap-dev/vdhcoapp/releases/download/v$VDHCOAPP_VERSION/vdhcoapp-noffmpeg-linux-x86_64.tar.bz2
+# mkdir -p /opt/vdhcoapp
+# tar xf vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 -C /opt/vdhcoapp --strip-components=1
 mkdir -p /usr/bin /usr/libexec/vdhcoapp
+# curl -L --silent https://github.com/aclap-dev/vdhcoapp/releases/download/v$VDHCOAPP_VERSION/vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 | tar xjf - \
+# tar xf vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 \
+#     --strip-components=1 \
+#     -C $VDHCOAPP_DIR \
+#     vdhcoapp-$VDHCOAPP_VERSION/vdhcoapp \
+#     vdhcoapp-$VDHCOAPP_VERSION/filepicker \
+#     vdhcoapp-$VDHCOAPP_VERSION/xdg-open
 
 tar xf vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 \
     --strip-components=1 \
@@ -43,4 +53,4 @@ tar xf vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 \
 chmod 755 /usr/bin/vdhcoapp /usr/libexec/vdhcoapp/{filepicker,xdg-open}
 
 rm vdhcoapp-noffmpeg-linux-x86_64.tar.bz2
-/usr/bin/vdhcoapp install
+# /usr/bin/vdhcoapp install
