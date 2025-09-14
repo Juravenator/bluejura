@@ -11,6 +11,8 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 # dnf5 install -y tmux 
+dnf copr enable -y bsvh/fw-ectool
+dnf install -y fw-ectool
 
 # Use a COPR Example:
 #
