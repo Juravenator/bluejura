@@ -38,8 +38,11 @@ curl -L --silent https://github.com/aclap-dev/vdhcoapp/releases/download/v$VDHCO
 
 chmod 755 /usr/bin/vdhcoapp /usr/bin/{filepicker,vdhcoapp}
 
-ln -s /usr/bin/vdhcoapp /opt/vdhcoapp/vdhcoapp
-ln -s /usr/bin/filepicker /opt/vdhcoapp/filepicker
-ln -s /usr/bin/xdg-open   /opt/vdhcoapp/xdg-open
+cat > /usr/lib/tmpfiles.d/vdhcoapp.conf <<'EOF'
+# Firefox expects these in /opt
+L /opt/vdhcoapp/vdhcoapp   - - - - /usr/bin/vdhcoapp
+L /opt/vdhcoapp/filepicker - - - - /usr/bin/filepicker
+L /opt/vdhcoapp/xdg-open   - - - - /usr/bin/xdg-open
+EOF
 
 /usr/bin/vdhcoapp install
