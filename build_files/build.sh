@@ -38,4 +38,8 @@ curl -L --silent https://github.com/aclap-dev/vdhcoapp/releases/download/v$VDHCO
 
 chmod 755 /usr/bin/vdhcoapp /usr/bin/{filepicker,vdhcoapp}
 
+ln -s /usr/bin/vdhcoapp /opt/vdhcoapp/vdhcoapp
+ln -s /usr/bin/filepicker /opt/vdhcoapp/filepicker
+ln -s /usr/bin/xdg-open   /opt/vdhcoapp/xdg-open
+
 /usr/bin/vdhcoapp install
