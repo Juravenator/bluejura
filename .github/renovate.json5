@@ -12,6 +12,11 @@
       "matchUpdateTypes": ["pin", "pinDigest"]
     },
     {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["pin", "pinDigest", "digest"],
+      "enabled": true
+    },
+    {
       "enabled": false,
       "matchUpdateTypes": ["digest", "pinDigest", "pin"],
       "matchDepTypes": ["container"],
