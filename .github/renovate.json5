@@ -14,10 +14,12 @@
     {
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["pin", "pinDigest", "digest"],
+      "automerge": true,
       "enabled": true
     },
     {
       "enabled": true,
+      "automerge": true,
       "matchUpdateTypes": ["digest", "pinDigest", "pin"],
       "matchDepTypes": ["container"],
       "matchFileNames": [".github/workflows/**.yaml", ".github/workflows/**.yml"],
