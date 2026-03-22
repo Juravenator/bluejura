@@ -25,28 +25,6 @@ dnf install -y fw-ectool
 
 # systemctl enable podman.socket
 
-
-# https://github.com/aclap-dev/vdhcoapp/releases
-VDHCOAPP_VERSION=2.0.19
-VDHCOAPP_DIR=/usr/bin
-mkdir -p /usr/bin /usr/libexec/vdhcoapp
-curl -L --silent https://github.com/aclap-dev/vdhcoapp/releases/download/v$VDHCOAPP_VERSION/vdhcoapp-noffmpeg-linux-x86_64.tar.bz2 | tar xjf - \
-    --strip-components=1 \
-    -C $VDHCOAPP_DIR \
-    vdhcoapp-$VDHCOAPP_VERSION/vdhcoapp \
-    vdhcoapp-$VDHCOAPP_VERSION/filepicker 
-
-chmod 755 /usr/bin/vdhcoapp /usr/bin/{filepicker,vdhcoapp}
-
-cat > /usr/lib/tmpfiles.d/vdhcoapp.conf <<'EOF'
-# Firefox expects these in /opt
-L /opt/vdhcoapp/vdhcoapp   - - - - /usr/bin/vdhcoapp
-L /opt/vdhcoapp/filepicker - - - - /usr/bin/filepicker
-L /opt/vdhcoapp/xdg-open   - - - - /usr/bin/xdg-open
-EOF
-
-/usr/bin/vdhcoapp install
-
 mkdir -p /nix && \
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix -o /nix/determinate-nix-installer.sh && \
 	chmod a+rx /nix/determinate-nix-installer.sh
