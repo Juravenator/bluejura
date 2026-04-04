@@ -14,7 +14,8 @@ set -ouex pipefail
 dnf copr enable -y bsvh/fw-ectool
 dnf install -y fw-ectool
 dnf copr disable -y bsvh/fw-ectool
-dnf install -y musl-gcc
+
+dnf install -y musl-gcc steam
 
 # Use a COPR Example:
 #
